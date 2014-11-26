@@ -1,0 +1,6 @@
+home_show:
+    path:      /
+    defaults:  { _controller: AppBundle:Default:show}
+home_show_json:
+    path:      /show.json
+    defaults:  { _controller: AppBundle:Default:showJson}

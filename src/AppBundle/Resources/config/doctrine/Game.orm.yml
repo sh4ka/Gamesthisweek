@@ -1,0 +1,31 @@
+AppBundle\Entity\Game:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        releaseDay:
+            type: integer
+            column: release_day
+        releaseMonth:
+            type: integer
+            column: release_month
+        releaseYear:
+            type: integer
+            column: release_year
+
+    manyToOne:
+        platform:
+          targetEntity: Platform
+          joinColumn:
+            name: platform_id
+            referencedColumnName: id
+
+    lifecycleCallbacks: {  }
