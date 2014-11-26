@@ -14,12 +14,15 @@ AppBundle\Entity\Game:
         releaseDay:
             type: integer
             column: release_day
+            nullable: true
         releaseMonth:
             type: integer
             column: release_month
+            nullable: true
         releaseYear:
             type: integer
             column: release_year
+            nullable: true
 
     manyToOne:
         platform:
