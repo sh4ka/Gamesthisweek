@@ -71,6 +71,17 @@ swiftmailer:
     password:  "%mailer_password%"
     spool:     { type: memory }
 
+monolog:
+    handlers:
+        main:
+            type:   stream
+            path:   "%kernel.logs_dir%/%kernel.environment%.log"
+            level:  debug
+        console:
+            type:   console
+            verbosity_levels:
+                VERBOSITY_NORMAL: DEBUG
+
 services:
     platform _routing_generator:
         class: AppBundle\Routing\PlatformRoutingLoader
