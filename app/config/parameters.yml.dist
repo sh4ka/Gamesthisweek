@@ -19,4 +19,4 @@ parameters:
     debug_toolbar:          true
     debug_redirects:        false
     use_assetic_controller: true
-    giant_bom_api_key: ChangeIt
+    giant_bomb_api_key: ChangeIt
