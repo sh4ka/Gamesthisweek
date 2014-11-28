@@ -1,0 +1,30 @@
+AppBundle\Entity\Metadata:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        shortdesc:
+            type: string
+            length: '2000'
+            nullable: true
+        fulldesc:
+            type: text
+            nullable: true
+        detailurl:
+            type: string
+            length: 255
+            nullable: true
+
+    oneToOne:
+        game:
+          targetEntity: Game
+          joinColumn:
+            name: game_id
+            referencedColumnName: id
+
+    lifecycleCallbacks: {  }

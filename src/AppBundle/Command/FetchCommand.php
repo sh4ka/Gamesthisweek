@@ -91,8 +91,8 @@ class FetchCommand extends ContainerAwareCommand {
         if(count($games) > 0){
             $em = $this->getContainer()->get('doctrine')->getManager();
             foreach($games['results'] as $game){
-                // find if it exists by name and platform
-                $existingGame = $em->getRepository('AppBundle:Game')->findOneBy(array('name' => $game['name'], 'platform' => $platform->getId()));
+                // find if it exists by name
+                $existingGame = $em->getRepository('AppBundle:Game')->findOneBy(array('name' => $game['name']));
                 if(!$existingGame){
                     $this->logger->debug('New '.$platform->getName().' game: '.$game['name']);
                     $newGame = new Game();
@@ -100,6 +100,7 @@ class FetchCommand extends ContainerAwareCommand {
                     $newGame->setReleaseDay($game['expected_release_day']);
                     $newGame->setReleaseMonth($game['expected_release_day']);
                     $newGame->setReleaseYear($game['expected_release_year']);
+                    $newGame->setDetailsUrl($game['game']['api_detail_url']);
                     $newGame->setPlatform($platform);
                     $em->persist($newGame);
                     $em->flush();

@@ -37,6 +37,11 @@ class Game
     private $releaseYear;
 
     /**
+     * @var string
+     */
+    private $detailsUrl;
+
+    /**
      * @ORM\ManyToOne(targetEntity="Platform")
      * @ORM\JoinColumn(name="platform_id", referencedColumnName="id")
      * @Exclude
@@ -198,6 +203,29 @@ class Game
      */
     public function getImages(){
         return $this->images;
+    }
+
+    /**
+     * <description>
+     *
+     * @param string $detailsUrl <param_description>
+     *
+     * @return $this
+     */
+    public function setDetailsUrl($detailsUrl)
+    {
+        $this->detailsUrl = $detailsUrl;
+        return $this;
+    }
+
+    /**
+     * <description>
+     *
+     * @return string
+     */
+    public function getDetailsUrl()
+    {
+        return $this->detailsUrl;
     }
 
 

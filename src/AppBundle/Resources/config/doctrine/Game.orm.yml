@@ -23,6 +23,11 @@ AppBundle\Entity\Game:
             type: integer
             column: release_year
             nullable: true
+        detailsUrl:
+            type: string
+            column: details_url
+            length: 255
+            nullable: true
 
     manyToOne:
         platform:
