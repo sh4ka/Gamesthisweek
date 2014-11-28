@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation\Exclude;
 
@@ -41,6 +42,16 @@ class Game
      * @Exclude
      **/
     private $platform;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Image", mappedBy="game")
+     **/
+    private $images;
+
+    public function __construct()
+    {
+        $this->images = new ArrayCollection();
+    }
 
 
     /**
@@ -166,5 +177,29 @@ class Game
     public function getPlatform(){
         return $this->platform;
     }
+
+    /**
+     * <description>
+     *
+     * @param mixed $images <param_description>
+     *
+     * @return $this
+     */
+    public function setImages($images)
+    {
+        $this->images = $images;
+        return $this;
+    }
+
+    /**
+     * <description>
+     *
+     * @return mixed
+     */
+    public function getImages(){
+        return $this->images;
+    }
+
+
 
 }

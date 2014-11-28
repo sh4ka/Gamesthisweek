@@ -20,7 +20,7 @@ class Image
     private $url;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Game")
+     * @ORM\ManyToOne(targetEntity="Game", inversedBy="images")
      * @ORM\JoinColumn(name="game_id", referencedColumnName="id")
      * @Exclude
      **/

@@ -88,3 +88,8 @@ services:
         arguments: ['@service_container']
         tags:
             - { name: routing.loader }
+
+    ui_limit_text:
+            class: AppBundle\Twig\LimitTextExtension
+            tags:
+                - { name: twig.extension }

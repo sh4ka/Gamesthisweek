@@ -31,4 +31,9 @@ AppBundle\Entity\Game:
             name: platform_id
             referencedColumnName: id
 
+    oneToMany:
+        images:
+          targetEntity: Image
+          mappedBy: game
+
     lifecycleCallbacks: {  }

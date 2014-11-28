@@ -1,0 +1,9 @@
+<div class="col-md-3 gamethumb">
+    <h5>{{ ui_trim(game.name) }}</h5>
+    {% if(game.images.first) %}
+        <img src="{{ game.images.first.url }}" />
+    {% else %}
+        <img src="img/blankbox.png" />
+    {% endif %}
+    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+</div><!--/.col-md-4-->
