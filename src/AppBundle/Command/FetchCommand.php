@@ -59,7 +59,7 @@ class FetchCommand extends ContainerAwareCommand {
 
     protected function getPlatform($platform){
         $this->logger->debug('Getting platform: '.$platform);
-        return $this->getContainer()->get('doctrine')->getManager()->getRepository('AppBundle:Platform')->find($platform);
+        return $this->getContainer()->get('doctrine')->getManager()->getRepository('AppBundle:Platform')->findOneBy(['externalId' => $platform]);
     }
 
     protected function fetchPc()

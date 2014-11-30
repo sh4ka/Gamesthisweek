@@ -232,11 +232,28 @@ class Game
         return $this->images->toArray()[0]->getUrl();
     }
 
+    public function getMediumImage(){
+        return $this->images->toArray()[1]->getUrl();
+    }
 
     public function getScreenImage(){
         return $this->images->toArray()[2]->getUrl();
     }
 
+    public function getSmallImage(){
+        return $this->images->toArray()[3]->getUrl();
+    }
 
+    public function getSuperImage(){
+        return $this->images->toArray()[4]->getUrl();
+    }
+
+    public function getThumbImage(){
+        return $this->images->toArray()[5]->getUrl();
+    }
+
+    public function getTinyImage(){
+        return $this->images->toArray()[5]->getUrl();
+    }
 
 }

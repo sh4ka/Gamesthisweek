@@ -19,6 +19,11 @@ class Platform
      */
     private $name;
 
+    /**
+     * @var integer
+     */
+    private $externalId;
+
 
     /**
      * Get id
@@ -52,4 +57,28 @@ class Platform
     {
         return $this->name;
     }
+
+    /**
+     * <description>
+     *
+     * @return int
+     */
+    public function getExternalId()
+    {
+        return $this->externalId;
+    }
+
+    /**
+     * <description>
+     *
+     * @param int $externalId <param_description>
+     *
+     * @return $this
+     */
+    public function setExternalId($externalId)
+    {
+        $this->externalId = $externalId;
+        return $this;
+    }
+
 }

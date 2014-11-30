@@ -11,4 +11,6 @@ AppBundle\Entity\Platform:
         name:
             type: string
             length: 255
+        externalId:
+            type: integer
     lifecycleCallbacks: {  }

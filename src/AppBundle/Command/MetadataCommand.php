@@ -63,7 +63,7 @@ class MetadataCommand extends ContainerAwareCommand {
             $newMetadata->setDetailurl($metadata['results']['deck']);
             $newMetadata->setFulldesc($metadata['results']['description']);
             $newMetadata->setDetailurl($metadata['results']['site_detail_url']);
-            $this->processImages($metadata['results']['images'][0], $game);
+            $this->processImages($metadata['results']['image'], $game);
             $this->em->persist($newMetadata);
             $this->em->flush();
         } else {
