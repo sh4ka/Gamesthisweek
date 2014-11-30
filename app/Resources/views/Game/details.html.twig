@@ -1,18 +1,9 @@
 {% extends 'base.html.twig' %}
-{% block stylesheets %}{% endblock %}
-{% block body %}
+{%  block body %}
     <div class="container">
         <div class="row row-offcanvas row-offcanvas-right">
             <div class="col-xs-12 col-md-9">
-                <p class="pull-right visible-xs">
-                    <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
-                </p>
-                <div class="row">
-                {% for game in games %}
-                    {% embed ':Game:gamethumb.html.twig' %}
-                    {% endembed %}
-                {% endfor %}
-                </div>
+                <img src="{{ game.getScreenImage() }}" />
             </div>
 
             <div class="col-xs-6 col-md-3 sidebar-offcanvas" id="sidebar" role="navigation">
@@ -27,4 +18,3 @@
         {% include '::footer.html.twig' %}
     </div>
 {% endblock %}
-{% block javascripts %}{% endblock %}

@@ -1,6 +1,12 @@
 home_show:
     path:      /
     defaults:  { _controller: AppBundle:Default:show}
+game_details:
+    path:      /game/{slug}-{id}
+    requirements:
+            slug:  \S+
+            id: \d+
+    defaults:  { _controller: AppBundle:Default:details}
 home_show_json:
     path:      /show.json
     defaults:  { _controller: AppBundle:Default:showJson}

@@ -228,6 +228,15 @@ class Game
         return $this->detailsUrl;
     }
 
+    public function getIconImage(){
+        return $this->images->toArray()[0]->getUrl();
+    }
+
+
+    public function getScreenImage(){
+        return $this->images->toArray()[2]->getUrl();
+    }
+
 
 
 }

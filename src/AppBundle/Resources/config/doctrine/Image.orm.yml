@@ -11,6 +11,9 @@ AppBundle\Entity\Image:
         url:
             type: string
             length: 255
+        imageType:
+          type: string
+          columnDefinition: ENUM('icon', 'medium', 'screen', 'small', 'super', 'thumb', 'tiny')
     manyToOne:
         game:
           targetEntity: Game

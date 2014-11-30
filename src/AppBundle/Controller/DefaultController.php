@@ -38,6 +38,17 @@ class DefaultController extends Controller
         );
     }
 
+    public function detailsAction($id){
+        $em = $this->getDoctrine()->getManager();
+        $game = $em->getRepository('AppBundle:Game')->find($id);
+        $platforms = $em->getRepository('AppBundle:Platform')->findAll();
+        return $this->render('Game/details.html.twig', array(
+                'game' => $game,
+                'platforms' => $platforms
+            )
+        );
+    }
+
     public function showJsonAction()
     {
         $em = $this->getDoctrine()->getManager();

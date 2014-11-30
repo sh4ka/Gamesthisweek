@@ -104,27 +104,11 @@ class FetchCommand extends ContainerAwareCommand {
                     $newGame->setPlatform($platform);
                     $em->persist($newGame);
                     $em->flush();
-                    $this->processImages($game['image'], $newGame);
                 } else {
                     $this->logger->debug('Existing '.$platform->getName().' game: '.$game['name']);
                 }
             }
         }
-    }
-
-    protected function processImages($image, Game $game){
-        $em = $this->getContainer()->get('doctrine')->getManager();
-        // save only thumb by now
-        if(!empty($image['thumb_url'])){
-            $this->logger->debug('Found '.$game->getName().' image: '.$image['thumb_url']);
-            $newImage = new Image();
-            $newImage->setGame($game);
-            $newImage->setUrl($image['thumb_url']);
-            $em->persist($newImage);
-        } else {
-            $this->logger->debug('Image for: '.$game->getName().' not found');
-        }
-        $em->flush();
     }
 
 } 

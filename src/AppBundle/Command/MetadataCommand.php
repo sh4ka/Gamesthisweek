@@ -63,6 +63,7 @@ class MetadataCommand extends ContainerAwareCommand {
             $newMetadata->setDetailurl($metadata['results']['deck']);
             $newMetadata->setFulldesc($metadata['results']['description']);
             $newMetadata->setDetailurl($metadata['results']['site_detail_url']);
+            $this->processImages($metadata['results']['images'][0], $game);
             $this->em->persist($newMetadata);
             $this->em->flush();
         } else {
@@ -70,4 +71,20 @@ class MetadataCommand extends ContainerAwareCommand {
         }
     }
 
+    protected function processImages($imageMetadata, Game $game){
+        $types = ['icon', 'medium', 'screen', 'small', 'super', 'thumb', 'tiny'];
+        foreach (array_keys($imageMetadata) as $key => $value)
+        {
+            if(empty($types[$key])){
+                continue;
+            }
+            // icon, medium, screen, small, super, thumb, tiny
+            $newImage = new Image();
+            $newImage->setImageType($types[$key]);
+            $newImage->setGame($game);
+            $newImage->setUrl($imageMetadata[$types[$key].'_url']);
+            $this->em->persist($newImage);
+        }
+        $this->em->flush();
+    }
 } 

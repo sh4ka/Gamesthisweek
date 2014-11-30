@@ -20,6 +20,11 @@ class Image
     private $url;
 
     /**
+     * @var string
+     */
+    private $imageType;
+
+    /**
      * @ORM\ManyToOne(targetEntity="Game", inversedBy="images")
      * @ORM\JoinColumn(name="game_id", referencedColumnName="id")
      * @Exclude
@@ -82,6 +87,30 @@ class Image
     {
         return $this->game;
     }
+
+    /**
+     * <description>
+     *
+     * @param string $imageType <param_description>
+     *
+     * @return $this
+     */
+    public function setImageType($imageType)
+    {
+        $this->imageType = $imageType;
+        return $this;
+    }
+
+    /**
+     * <description>
+     *
+     * @return string
+     */
+    public function getImageType(){
+        return $this->imageType;
+    }
+
+
 
 
 }
